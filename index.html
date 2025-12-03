@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>森森天氣</title>
+    <title>臺北天氣</title>
     <link rel="icon" type="image/png" href="./icon-v2.png">
     <link rel="apple-touch-icon" href="./icon-v2.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./icon-v2.png">
@@ -15,14 +15,14 @@
 
     <style>
         :root {
-            --ac-green: #7DE1A9;
-            --ac-bg-pattern: #8FD8AF;
-            --ac-cream: #FFFEF2;
+            --ac-green: #d30202;
+            --ac-bg-pattern: #92060d;
+            --ac-cream: #000000;
             --ac-yellow: #F9F195;
-            --ac-brown: #796452;
+            --ac-brown: #2b2927;
             --ac-blue: #4FB5D9;
-            --ac-dark: #58504A;
-            --ac-card-border: #E6E0C8;
+            --ac-dark: #1f6d42;
+            --ac-card-border: #1f1e1d;
         }
 
         * {
@@ -37,7 +37,7 @@
             background-color: var(--ac-green);
             /* 更細緻的斜紋背景 */
             background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.2) 20px, rgba(255, 255, 255, 0.2) 40px);
+                repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255, 255, 255, 0.2) 20px, rgba(255, 255, 255, 0.2) 40px);
             min-height: 100vh;
             color: var(--ac-dark);
             /* 防止 iOS 左右滑動 */
@@ -51,7 +51,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
@@ -66,7 +66,7 @@
             font-weight: 900;
             font-size: 1.1rem;
             transform: rotate(-2deg);
-            border: 2px solid white;
+            border: 2px solid rgb(29, 29, 29);
             box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
         }
 
@@ -104,7 +104,7 @@
             left: 50%;
             transform: translateX(-50%);
             background: var(--ac-blue);
-            color: white;
+            color: rgb(0, 0, 0);
             padding: 5px 20px;
             border-radius: 20px;
             font-weight: bold;
@@ -264,7 +264,7 @@
         <p style="color: white; font-weight: bold; margin-top: 20px;">正在觀測雲的流動...</p>
     </div>
     <div class="status-bar">
-        <div class="location-pill">📍 高雄</div>
+        <div class="location-pill">📍 臺北</div>
         <div id="updateTime" class="update-pill">更新中...</div>
     </div>
 
@@ -280,7 +280,7 @@
     </div>
 
     <script>
-        const API_URL = "https://cwa-backend-api.zeabur.app/api/weather/kaohsiung";
+        const API_URL = "https://tanchi.zeabur.app/api/weather/kaohsiung";
 
         function getWeatherIcon(weather) {
             if (!weather) return "🌤️";
@@ -415,7 +415,7 @@
                 }
             } catch (e) {
                 console.error(e);
-                alert("天氣資料讀取失敗，狸克把網路線咬斷了！");
+                alert("天氣資料讀取失敗，中國漁船把網路線咬斷了！");
             }
         }
 
